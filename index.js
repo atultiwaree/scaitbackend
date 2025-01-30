@@ -76,7 +76,13 @@ async function generateResultImage(student) {
   ctx.font = "18px Arial";
   tableY += 30;
   student.subjects.forEach((subject, index) => {
-    let total = subject.theoryMarks + subject.practicalMarks;
+    
+    // Convert marks to numbers before adding
+    const theoryMarks = Number(subject.theoryMarks);
+    const practicalMarks = Number(subject.practicalMarks);
+    const total = theoryMarks + practicalMarks; // Now this will be numeric addition
+
+
     ctx.fillText(`${index + 1}`, 50, tableY);
     ctx.fillText(subject.name, 100, tableY);
     ctx.fillText("100", 350, tableY);
