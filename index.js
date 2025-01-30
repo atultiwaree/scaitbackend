@@ -10,6 +10,7 @@ const PORT = process.env.PORT || 8000;
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.json({limit: '50mb'}));
 
 async function generateResultImage(student) {
   const canvas = createCanvas(883, 1280);
