@@ -1,14 +1,9 @@
 const express = require("express");
-// const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const Student = require("./models/Student");
 
 const { createCanvas, loadImage } = require("canvas");
 const QRCode = require("qrcode");
-const fs = require("fs");
-
-const result = require("./GenerateImage");
 
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -16,10 +11,6 @@ const PORT = process.env.PORT || 8000;
 app.use(cors());
 app.use(bodyParser.json());
 
-// mongoose.connect("mongodb://localhost:27017/studentAcademy", {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// });
 async function generateResultImage(student) {
   const canvas = createCanvas(883, 1280);
   const ctx = canvas.getContext("2d");
